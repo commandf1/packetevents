@@ -61,6 +61,7 @@ public class PacketEventsPlugin {
     public void onProxyInitialize(ProxyInitializeEvent event) {
         logger.info("Injecting packetevents...");
         PacketEvents.setAPI(VelocityPacketEventsBuilder.build(server, pluginContainer, logger, dataDirectory));
+        PacketEvents.getAPI().getSettings().checkForUpdates(false);
         PacketEvents.getAPI().load();
         // It should only be enabled in a development environment, not globally
         // PacketEvents.getAPI().getSettings().debug(true);
